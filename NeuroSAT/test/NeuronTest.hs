@@ -6,4 +6,6 @@ import Neuron
 import Test.HUnit
 import Test.Framework
 
-test_Timeserver = testX @?= 3
+{-# ANN module "HLint: ignore Use camelCase" #-} 
+test_Timeserver :: Assertion
+test_Timeserver = testX @?= 4
