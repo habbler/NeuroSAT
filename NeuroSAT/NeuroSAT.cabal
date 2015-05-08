@@ -1,0 +1,17 @@
+name:           NeuroSAT
+version:        0.1
+cabal-version:  >=1.2
+build-type:     Simple
+author:         Rene
+
+library
+  hs-source-dirs:  src
+  build-depends:   base >= 4
+  ghc-options:     -fwarn-missing-signatures
+
+executable NeuroSAT
+  hs-source-dirs:  src
+  main-is:         Main.hs
+  build-depends:   base >= 4
+  ghc-options:     -fwarn-missing-signatures
+
