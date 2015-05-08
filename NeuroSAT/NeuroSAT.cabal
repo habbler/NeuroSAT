@@ -1,6 +1,6 @@
 name:           NeuroSAT
 version:        0.1
-cabal-version:  >=1.2
+cabal-version:  >=1.10
 build-type:     Simple
 author:         Rene
 
@@ -8,10 +8,32 @@ library
   hs-source-dirs:  src
   build-depends:   base >= 4
   ghc-options:     -fwarn-missing-signatures
+  other-modules:   
+                   Main
+                   
+  exposed-modules: NeuronTypes, Neuron
+  default-language:  Haskell2010
 
 executable NeuroSAT
   hs-source-dirs:  src
   main-is:         Main.hs
   build-depends:   base >= 4
   ghc-options:     -fwarn-missing-signatures
-
+  other-modules:   
+                   NeuronTypes,
+                   Neuron
+  default-language:  Haskell2010
+  
+test-suite Basic
+  type:            exitcode-stdio-1.0
+  main-is:         Basic.hs
+  ghc-options:     -Wall -rtsopts
+  build-depends:   
+                   base >= 4, HTF > 0.9,
+                   HUnit, NeuroSAT
+  other-modules:   
+                  Basic,
+                  NeuronTest
+  hs-source-dirs:  
+                  test
+  default-language:  Haskell2010
