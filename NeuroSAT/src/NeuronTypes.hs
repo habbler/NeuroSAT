@@ -2,15 +2,15 @@ module NeuronTypes where
 
 import Data.IntMap as IMap
  
-newtype NeuronID = NeuronID Int
+newtype NeuronID = NeuronID Int deriving (Eq,Show)
 
-newtype Location = Location (Int, Int)
-newtype Direction = Direction Int
+newtype Location = Location (Int, Int) deriving (Eq,Show)
+newtype Direction = Direction Int deriving (Eq,Show)
 
 -- | Use by the rules that decide how to connect Neurons together
 data NeuronDescriptor = NDirection { location :: Location
                                    , direction :: Direction
-                                   }
+                                   } deriving (Eq,Show)
                                    
 data NeuronState = NeuronOn | NeuronOff
 
@@ -27,7 +27,8 @@ type NStates = IntMap NeuronState
 data Synapse = Synapse { factor :: Float
                        , targetID :: NeuronID 
                        }
-                       
+
+type SynapseBias = Float                       
 type SynapseFactor = Float
 
 -- | Map from the Source neuron to a list of destination neurons via the connecting synapse                       

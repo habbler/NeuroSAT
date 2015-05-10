@@ -8,7 +8,9 @@ library
   hs-source-dirs:  src
   build-depends:   
                    base >= 4,
-                   containers
+                   containers,
+                   array,
+                   mtl
   ghc-options:     -fwarn-missing-signatures
   other-modules:   
                    Main
@@ -21,7 +23,8 @@ executable NeuroSAT
   main-is:         Main.hs
   build-depends:   
                    base >= 4,
-                   containers
+                   containers,
+                   array
   ghc-options:     -fwarn-missing-signatures
   other-modules:   
                    NeuronTypes,
