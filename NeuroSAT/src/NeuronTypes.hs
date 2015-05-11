@@ -4,6 +4,8 @@ import Data.IntMap as IMap
  
 newtype NeuronID = NeuronID Int deriving (Eq,Show)
 
+newtype MaxNeuronID = MaxNeuronID Int deriving (Eq,Show)
+
 newtype Location = Location (Int, Int) deriving (Eq,Show)
 newtype Direction = Direction Int deriving (Eq,Show)
 
@@ -24,6 +26,8 @@ type NDescriptors = IntMap NeuronDescriptor
 -- | Map from NeuronID's to their current state
 type NStates = IntMap NeuronState
 
+type Probability = Float
+
 data Synapse = Synapse { factor :: Float
                        , targetID :: NeuronID 
                        }
@@ -35,4 +39,12 @@ type SynapseFactor = Float
 type Synapses = IntMap [(SynapseFactor, NeuronID)]
 
 -- | A signal from one neuron to its target.
-type Spike = Float                                                          
+type Spike = Float       
+
+data WTA_Record = WTA_Record { wtaNID :: NeuronID
+                               -- | Probability that this neuron is a valid solution to this WTA
+                               -- | This doesn't really make sense here as it should be part of the particular solution.
+                             , wtaProbSolution :: Probability 
+                               -- | Probability that this neuron belongs to this WTA                             
+                             , wtaProbMember :: Probability
+                             }                                                   
